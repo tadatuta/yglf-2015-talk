@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BEM — Building 'em modular</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="styles/screen.css">
+</head>
+<body class="list">
+	<!--
+		Debug class on <body> enables
+		cyan grid on slides
+		-->
+	<header class="caption">
+		<h1>BEM — Building 'em modular</h1>
+		<p><a href="https://twitter.com/mursya">Yelena Jetpyspayeva</a>, <a href="https://twitter.com/tadatuta">Vladimir Grinenko</a>, <a href="http://yandex.com/">Yandex</a></p>
+	</header>
+	<section class="slide bem"><div>
+		<img src="pictures/sign_theme_batman.png" alt="BEM">
+	</div></section>
+	<section class="slide title"><div>
+		<h2>BEM — Building 'em modular</h2>
+		<h3>Yelena Jetpyspayeva, Vladimir Grinenko, Yandex<br>
+			YouGottaLoveFrontEnd, 2015</h3>
+		<footer>
+			Hello, my name is Vladimir
+		</footer>
+	</div></section>
+	<section class="slide myself mursya"><div>
+		<h2>Yelena</h2>
+		<ul>
+			<li>3 years at Yandex</li>
+			<li>Я.Субботники, YaC, группа собственных мероприятий…</li>
+			<li>маркетинг технологий, коммуникации,<br> Developer Relations &amp; BEM</li>
+			<li>mursya@yandex-team.ru</li>
+			<li>@mursya</li>
+		</ul>
+		<footer>
+		</footer>
+	</div></section>
+	<section class="slide myself"><div>
+		<h2>Vladimir</h2>
+		<ul>
+			<li>head of BEM team at Yandex</li>
+			<li>i@tadatuta.com</li>
+			<li>@tadatuta</li>
+			<li>github.com/tadatuta</li>
+		</ul>
+		<footer>
+			I work for Yandex — the largest search engine in Russia (that's true in Russia we're bigger than Google).
+		</footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/yandex-services.jpg" alt="Yandex">
+		<footer>
+			Of course it's not just search but also one of the biggest mail service, great maps and so on.
+			Actually we have few hundreds of different services and an audience of more then 50.5 million visitors daily.
+			To develop these services we have 5,136 employees. And about 400 work on our front-end.
+			And as Yandex is a huge portal with consistent style guide we have a lot of common interface pieces which we prefer to change rapidly and simultaneously.
+			That's where BEM helps us a lot! But of course it works pretty good not just for big projects with large teams but for single freelancers, small teams or startups.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What we're going to talk about</h2>
+		<ul>
+
+<!-- Мурся — 10 мин
+* История появления
+* История распространения в СНГ
+* История распространения на Западе
+Володя — 20 мин
+* Методология/Нейминг
+* Файловая структура/Сборщик
+* Шаблонизатор и JS
+* Либы
+* Проджект стаб/Магия/Практическая сессия/Форум
+ -->
+
+			<li>What’s BEM</li>
+			<li class="next">BEM methodology</li>
+			<li class="next">BEM VS Web Components</li>
+			<li class="next">BEM in different techs</li>
+			<li class="next">BEM for JS</li>
+			<li class="next">Yandex's implementation of BEM</li>
+		</ul>
+		<footer>
+			Let’s run through what I’m going to talk about
+		</footer>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>История</h2>
+		<ul>
+			<li>в Яндексе</li>
+			<li class="next">под названием АНБ</li>
+			<li class="next">Виталя Харисов и Серега veged Бережной</li>
+			<li class="next">bem-bl и bem-tools</li>
+			<li class="next">bem-core и bem-components</li>
+			<li class="next">c 2006 и по сей день</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>Сообщество БЭМ</h2>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/users.png" alt="BEM">
+	</div></section>
+	<section class="slide myself vitaly"><div>
+		<div style="width: 70%">
+			<blockquote>«Когда я спросил Харисова на Я.Субботнике в 2009 (я тогда в Яндексе не работал), почему они бесплатно рассказывают и выкладывают наработки, он ответил: „Когда делаешь что-то долго и хорошо, со временем появляется желание поделиться“»,</blockquote>
+				<br>
+				<br>
+				<p style="text-align: right;">— из разговора с одним  неизвестным<br>БЭМ-разработчиком</p>
+		</div>
+		<footer>
+		</footer>
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/love.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/super.png" alt="BEM">
+	</div></section>
+	<section class="slide"><div>
+		<h2>Ведь приходилось делать</h2>
+		<ul>
+			<li>БЭМ — методологию и технологии</li>
+			<li class="next">Лего — общепортальную мета-библиотеку блоков Яндекса</li>
+			<li class="next">разбираться с багами сервисов (Поиска, Картинок, Видео и т.д.)</li>
+			<li class="next">отвечать на запросы</li>
+			<li class="next">эвангелизировать</li>
+			<li class="next">иногда чуть-чуть жить</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Не только методология, но и</h2>
+		<ul>
+			<li>библиотеки</li>
+			<li class="next">инструменты</li>
+			<li class="next">JS-фреймворк</li>
+			<li class="next">шаблонизатор</li>
+			<li class="next">движок для сбора документации и примеров</li>
+			<li class="next">тесты для блоков</li>
+			<li class="next">много чего еще</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/pity.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/support.png" alt="BEM">
+	</div></section>
+	<section class="slide important"><div>
+		<h2>БЭМ — первый технологический продукт Яндекса</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Кто мы</h2>
+		<ul>
+			<li>Служба разработки БЭМ</li>
+			<li class="next">Лего и разработчики сервисов Яндекса</li>
+			<li class="next">Разработчики, использующие БЭМ</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Что мы делаем</h2>
+		<ul>
+			<li>Служба разработки БЭМ — продукт</li>
+			<li class="next">Команда Лего — мета-библиотеку Яндекса на этом продукте</li>
+			<li class="next">Разработчики сервисов — сервисы на Лего или БЭМ и часто свои БЭМ-проекты</li>
+			<li class="next">Разработчики, использующие БЭМ — проекты на БЭМ, свои БЭМ-инструменты, библиотеки и даже целые новые методологии :)</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/we.png" alt="BEM">
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/avatars.png" alt="BEM">
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/logos.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/yo.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/hm.png" alt="BEM">
+	</div></section>
+	<section class="slide section"><div>
+		<h2>Пользователям и контрибьюторам</h2>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Арсенал</h2>
+		<ul>
+			<li>Продукт — библиотека bem-components: 20 блоков, тесты, документация, демо (coming), пыщ-пыщ!</li>
+			<li class="next">Служба разработки продукта — разработчики, тестировщики, документаторы</li>
+			<li class="next">Проекты и пользователи разного уровня сложности, размера, тп</li>
+			<li class="next">Онлайн-площадка — bem.info</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/beminfo.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/beminfo2.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/beminfo3.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/forum2.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/job.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/projects.png" alt="BEM">
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/authors.png" alt="BEM">
+	</div></section>
+	<section class="slide"><div>
+		<h2>Арсенал</h2>
+		<ul>
+			<li>Продукт — библиотека bem-components: 20 блоков, тесты, документация, демо (coming), пыщ-пыщ!</li>
+			<li>Служба разработки продукта — разработчики, тестировщики, документаторы</li>
+			<li>Проекты и пользователи разного уровня сложности, размера, тп</li>
+			<li>Онлайн-площадка — bem.info</li>
+			<li>Оффлайн-площадка: BEMup-ы, хакатоны, конференции и семинары</li>
+			<li class="next"><del>Мурся</del>, маркетинг, коммьюнити</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover h w"><div>
+		<img src="pictures/yeah.png" alt="BEM">
+	</div></section>
+	<section class="slide"><div>
+		<h2>Пользователям и контрибьюторам</h2>
+		<ul>
+			<li>Помогаем консультациями</li>
+			<li class="next">Реагируем на фидбек</li>
+			<li class="next">Отвечаем на фичреквесты</li>
+			<li class="next">Продвигаем вместе</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/ask.png" alt="BEM">
+	</div></section>
+
+	<section class="slide section"><div>
+		<h2>What is BEM</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+		</ul>
+		<footer>
+			BEM is a methodology of how to build web services. It appeared long before web components and works in all browsers including IE6. I show you why it's much easier to develop and support then with web components.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+			<li>the same language for all</li>
+		</ul>
+		<footer>
+			BEM is the same terms for all people participating in development from managers and designers to front- and backend developers. That sounds not so clear now but I'll explain myself soon.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+			<li>the same language for all</li>
+			<li>scaling</li>
+		</ul>
+		<footer>
+			BEM is about scaling. Scaling of code, hardware and people.
+			Divide and conquer
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+			<li>the same language for all</li>
+			<li>scaling</li>
+			<li>full stack of techs and tools</li>
+		</ul>
+		<footer>
+			BEM is a full stack of techs and tools. Really full. No more need to find the way how to connect one framework with another, building tools with optimisers. BEM gives everything ready and still very loosely coupled so you can take as much BEM as you need.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+			<li>the same language for all</li>
+			<li>scaling</li>
+			<li>full stack of techs and tools</li>
+			<li>ready-made components</li>
+		</ul>
+		<footer>
+			BEM is also libraries full of great ready-made components. You'll learn why a thing they are so awesome till the end of my talk.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is it actually?!</h2>
+		<ul>
+			<li>a methodology of how to build web services</li>
+			<li>the same language for all</li>
+			<li>scaling</li>
+			<li>full stack of techs and tools</li>
+			<li>ready-made components</li>
+			<li>community</li>
+		</ul>
+		<footer>
+			BEM is a dedicated community in CIS but still not so popular in English-speaking countries because we just started to write documentation and promote it in English. But I believe you'll love it!
+		</footer>
+	</div></section>
+	<section class="slide no-bullets"><div>
+		<h2>In short</h2>
+		<ul>
+			<li><span class="colored">B</span>lock</li>
+			<li><span class="colored">E</span>lem</li>
+			<li><span class="colored">M</span>odifier</li>
+		</ul>
+		<footer>
+			First of all let's define what are blocks, elements and modifiers.
+			A block is an independent entity with its own meaning that represents a piece of interface on a page. It is a component in terms of web components specification.
+			Blocks are intended to be reusable and easily extendable.
+
+			Element is a part of block which has no meaning without it's parent block. Often elements are private part of API so you can think of them as of shadow DOM. But here you can see that we prefer convention over configuring: technically you can always interact with any element but because of our naming system one can't do it without [осознанного] intention.
+
+			Modifiers represent differences between similar blocks and — which is more important — the state of a block or an element.
+		</footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/cat_type_red.jpg" alt="cat_type_red">
+		<footer></footer>
+	</div></section>
+	<section class="slide cover h"><div>
+		<img src="pictures/cat_state_wet.jpg" alt="cat_state_wet">
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Naming convention</h2>
+		<p><span class="colored">B</span>lock__<span class="colored">E</span>lement_<span class="colored">M</span>odifier</p>
+		<footer>
+			As you know there are two difficulties in programming: naming things and cache invalidation. And BEM solves the first one.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Naming convention</h2>
+		<p><span class="colored">B</span>lock__<span class="colored">E</span>lement_<span class="colored">M</span>odifier_ModValue</p>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Naming convention</h2>
+		<p><span class="colored">B</span>lock__<span class="colored">E</span>lement_<span class="colored">M</span>odifier_ModValue</p>
+		<p><a href="http://bem.info/tools/bem/bem-naming/">bem.info/tools/bem/bem-naming</a></p>
+		<footer>
+			So we created tiny library to parse any syntax you like.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>File system</h2>
+		<pre><code>prj/
+    blocks/
+        header/
+            header.css
+            header.js
+            header.tmpl
+            header.svg
+            header.md
+		</code></pre>
+		<footer>
+			Blocks are really independent. So we keep everything about a block in one folder.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>File system</h2>
+		<pre><code>prj/
+    blocks/
+        header/
+            _theme/
+        	    header_theme_simple.css
+        	    header_theme_full.css
+            __logo/
+                header__logo.css
+		</code></pre>
+		<footer>
+			We also optionally create separate files and folders for elements and modifiers so as a result we have possibility build a project with just necessary files.
+		</footer>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>BEM for CSS</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>BEM principles for CSS</h2>
+		<ul>
+			<li>Map document to BEM blocks — no tag or id selectors</li>
+			<li class="next">No CSS outside of blocks</li>
+			<li class="next">Independent blocks -> no global reset</li>
+			<li class="next">Avoid cascade</li>
+		</ul>
+		<footer>
+			[before Next] Do you remember old school? I know that organisers do.
+		</footer>
+	</div></section>
+	<section class="slide cover w black"><div>
+		<img src="pictures/oldschool.jpg" alt="Old School">
+	</div></section>
+	<section class="slide"><div>
+		<h2>Old school</h2>
+		<pre><code><span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span></code></pre>
+		<footer>
+			That was quite handy, yeah? Just one html file. Everything about each tag goes right there. No need to look for it, no need to use web inspector. Pretty, isn’t it?
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Old school</h2>
+		<pre><code><span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span></code></pre>
+		<footer>
+			And then your project starts getting bigger.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Old school</h2>
+		<pre><code><span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;
+	<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">40</span> <span class="param">height</span>=<span class="param-val">40</span><span class="gray">&gt;
+		<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">34</span> <span class="param">height</span>=<span class="param-val">34</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+	&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">width</span>=<span class="param-val">120</span> <span class="param">height</span>=<span class="param-val">200</span><span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+</code></pre>
+		<footer>
+			…and bigger.
+And of course your manager comes and asks to change all 40px wide divs to be 42. Just because it’s an answer to everything, you know.
+		</footer>
+	</div></section>
+	<section class="slide smaller"><div>
+		<h2>Declarative CSS</h2>
+		<pre><code><span class="blue">.block
+{</span>
+    width: <span class="param-val">120px</span>;
+    height: <span class="param-val">200px</span>;
+<span class="blue">}</span></code></pre>
+		<footer>
+			And then CSS came.
+CSS is so great because it’s declarative by design. You can declare rules for some selector and no matter how many nodes you need and how deep they are in DOM tree — when selector matches a node, it applies rules to it.
+		</footer>
+	</div></section>
+	<section class="slide smaller"><div>
+		<h2>Declarative CSS</h2>
+		<pre><code><span class="blue">.block
+{</span>
+    width: <span class="param-val">120px</span>;
+    <del>height: <span class="param-val">200px</span>;</del>
+<span class="blue">}</span>
+
+<span class="blue">.block
+{</span>
+    height: <span class="param-val">220px</span>;
+    background: <span class="param-val">red</span>;
+<span class="blue">}</span></code></pre>
+		<footer>
+			And one more thing which is quite awesome is that when you need to add more rules to the same node or change any previously declared rule  it’s enough just to match the same selector again and that’s it.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Old school</h2>
+		<pre><code><span class="gray">&lt;</span><span class="blue">div</span> <span class="param">class</span>="block" <span class="param">onclick</span>="<span class="param-val">doSomething()</span>"<span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span></code></pre>
+		<footer>
+			Can you remember this? Same ugly thing as with inline styles, yeah?
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Semi-declarative JS</h2>
+		<pre><code>$('<span class="blue">.block</span>').doSomething();</code></pre>
+		<footer>
+			But now we used to use declarative CSS selectors to match DOM nodes in JS too.
+			And JS brought dynamics so DOM nodes now can be easily changed on the fly.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Semi-declarative JS</h2>
+		<pre><code><span class="gray">&lt;</span><span class="blue">div</span> <span class="param">class</span>="<span class="param-val">block</span>"<span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+<span class="gray">&lt;</span><span class="blue">div</span> <span class="param">class</span>="<span class="param-val">another-block</span>"<span class="gray">&gt;&lt;</span><span class="blue">/div</span><span class="gray">&gt;</span>
+<br>
+$('<span class="blue">.block</span>').doSomething();
+<p class="next">$('<span class="blue">.another-block</span>').switchClass('<span class="blue">not-a-block</span>', '<span class="blue">block</span>');</p>
+</code></pre>
+		<footer>
+			And the problem here is that CSS for .block will be now applied to both divs but doSomething() method — just to the first one.
+			And that’s not so handy.
+		</footer>
+	</div></section>
+	<section class="slide small"><div>
+		<h2>Truly declarative JS made BEM way</h2>
+		<pre><code>BEM.decl('block', {
+	onSetMod: {
+	    <span class="colored">modifier1</span>: {
+	        <span class="colored">value1</span>: function() {
+	            this.onM1V1();
+	        },
+	        <span class="colored">''</span>: function() {
+	            this.onRemoveM1();
+	        }
+	    }
+	}
+});</code></pre>
+		<footer>
+			BEM loves true declarative programming. And we use it everywhere we can.
+		</footer>
+	</div></section>
+	<section class="slide small"><div>
+		<h2>Templates</h2>
+		<pre><code>var <span class="blue">ctx</span> = { temperature: <span class="param-val">42</span> };<br>
+<div class="next">&lt;<span class="blue">div</span> <span class="param">class</span>="<span class="param-val">weather</span>"&gt;
+    &lt;<span class="blue">div</span> <span class="param">class</span>="<span class="param-val">weather__inner</span>"&gt;
+        {{temperature}}
+    &lt;<span class="blue">/div</span>&gt;
+&lt;<span class="blue">/div</span>&gt;</div><br>
+<div class="next">&lt;<span class="blue">div</span> <span class="param">class</span>="<span class="param-val">weather</span>"&gt;
+    &lt;<span class="blue">div</span> <span class="param">class</span>="<span class="param-val">weather__inner</span>"&gt;
+        42
+    &lt;<span class="blue">/div</span>&gt;
+&lt;<span class="blue">/div</span>&gt;</div></code></pre>
+		<footer>
+			Don’t you think we ended up with the same mess of template and inlined data like with oldschoolish inline styles or inline event bindings?
+			Sure it’s very convenient and in the same file and all that… but for some reason we use declarative CSS and JS so why shouldn’t we use same approach with HTML?
+		</footer>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>BEM for templates</h2>
+	</div></section>
+	<section class="slide small"><div>
+		<h2>BEM templates</h2>
+		<pre><code>var <span class="blue">ctx</span> = { temperature: <span class="param-val">42</span> };
+var <span class="blue">view</span> = { block: "<span class="param-val">weather</span>" };<br>
+block weather {
+    <span class="blue">tag</span>: '<span class="param-val">ul</span>'
+    <span class="blue">content</span>: {
+        <span class="blue">elem</span>: '<span class="param-val">inner</span>',
+        <span class="blue">content</span>: ctx.temperature
+    }
+    elem inner {
+        <span class="blue">tag</span>: '<span class="param-val">li</span>'
+    }
+}</code></pre>
+		<footer>
+			BEM forms a semantic overlay over the existing DOM structure — BEMTREE. It’s an abstraction on top of HTML which is actually too low level like assembler for browser.
+		</footer>
+	</div></section>
+	<section class="slide small"><div>
+		<h2>Templates</h2>
+		<pre><code><div class="next">&lt;<span class="blue">ul</span> <span class="param">class</span>="<span class="param-val">weather</span>"&gt;
+    &lt;<span class="blue">li</span> <span class="param">class</span>="<span class="param-val">weather__inner</span>"&gt;
+        42
+    &lt;<span class="blue">/li</span>&gt;
+&lt;<span class="blue">/ul</span>&gt;</div></code></pre>
+		<footer>
+			Don’t you think we ended up with the same mess of template and inlined data like with oldschoolish inline styles or inline event bindings?
+			Sure it’s very convenient and in the same file and all that… but for some reason we use declarative CSS and JS so why shouldn’t we use same approach with HTML?
+		</footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<h2 style="margin: -80px 0 0 -90px">Web components</h2>
+		<img src="pictures/shadow-dom.jpg" alt="shadow-dom">
+		<footer>Now lets have a look at what web components suggest us</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Web components</h2>
+		<pre><code>&lt;<span class="blue">audio</span> controls src="<span class="param-val">campjs.mp3</span>"&gt;&lt;<span class="blue">/audio</span>&gt;</code></pre>
+		<img src="pictures/audio.png" alt="shadow-dom" style="width:60%; margin-top: -50px">
+		<ul>
+			<li>Semantic abstraction <span class="next red">messed with non-semantic tags</span></li>
+			<li class="next">All techs together <span class="next red">in same file</span></li>
+			<li class="next">Hidden inside with Shadow DOM <span class="next red">which lacks browser support</span></li>
+		</ul>
+		<footer>
+			They give us a way to develop components which intended to be easy to reuse.
+			One can name it semantically — audio.
+			But it lives in a mess with old school html tags like div or span.
+			Encapsulate all techs inside in the same file actually which you are to link to your page.
+			Hide elements which are useless without audio itself with SDOM.
+			But browser support is still not so good.
+			HTML imports which are similar to old school way of using tons of js libraries without building your project before deployment.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>BEM blocks</h2>
+		<pre><code>{ block: '<span class="param-val">audio</span>', hasControls: <span class="param-val">true</span>, src: '<span class="param-val">campjs.mp3</span>' }</code></pre>
+		<img src="pictures/audio.png" alt="shadow-dom" style="width:60%; margin-top: -50px">
+		<ul>
+			<li>Semantic abstraction <span class="green">with BEMTREE</span></li>
+			<li class="next">All techs together <span class="green">in same folder</span></li>
+			<li class="next">Hidden by convention <span class="green">which is supported in any browser</span></li>
+			<li class="next">Bundled inside one file <span class="green">for each tech to avoid extra requests</span></li>
+		</ul>
+		<footer>
+			BEM Way
+		</footer>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>One BEM to rule ‘em all</h2>
+		<footer>
+			There is no unified semantic model across different FE technologies
+			HTML stands for hypertext... I've heard we mostly do web apps...
+			CSS offers no structure out of the box Usually a pile of rules put together. Sorry.
+			JavaScript uses its own approaches... a new one comes with every framework.
+		</footer>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>bem.info</h2>
+		<footer>
+			Everything is opensourced
+		</footer>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/wow.jpg" alt="WOW">
+		<footer>
+			Summary
+BEM claims that simple semantic model (Blocks, Elements, and Modifiers) is enough to define the way you author HTML / CSS / JavaScript, structure code and components, set up interaction and scale your project to build an industry-leading service.
+		</footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>YModules</h2>
+		<ol>
+			<li>Asynchronous require for modules</li>
+			<li class="next">Asynchronous provide for modules</li>
+			<li class="next">Extending and redefining a module</li>
+		</ol>
+		<p class="next">Why not CommonJS?<br>
+			See #1, #2 and #3 in the list of requirements</p>
+		<p class="next">Why not AMD?<br>
+			See #2 and #3 in the list of requirements</p>
+		</div>
+		<footer></footer>
+	</div></section>
+	<section class="slide contacts"><div>
+		<h2>BEM</h2>
+		<h3>Block__Element_Modifier</h3>
+		<ul>
+			<li class="social social_fb"><a href="http://groups/bem.info">groups/bem.info</a></li>
+			<li class="social social_tw"><a href="http://twitter.com/@bem_en">@bem_en</a> #b_</li>
+			<li class="social social_gh"><a href="http://github.com/bem">bem</a></li>
+			<li class="mail"><a href="mailto:info@bem.info">info@bem.info</a></li>
+		</ul>
+		<footer></footer>
+	</div></section>
+
+	<p class="badge"><a href="https://github.com/tadatuta">Fork me on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower-core/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+</body>
+</html>
