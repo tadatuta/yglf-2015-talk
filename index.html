@@ -22,161 +22,269 @@
 	<section class="slide title"><div>
 		<h2>BEM — Building 'em modular</h2>
 		<h3>Yelena Jetpyspayeva, Vladimir Grinenko, Yandex<br>
-			YouGottaLoveFrontEnd, 2015</h3>
+			You Gotta Love FrontEnd 2015, June 8-9, Tel-Aviv</h3>
 		<footer>
-			Hello, my name is Vladimir
 		</footer>
 	</div></section>
 	<section class="slide myself mursya"><div>
 		<h2>Yelena</h2>
 		<ul>
-			<li>3 years at Yandex</li>
-			<li>Я.Субботники, YaC, группа собственных мероприятий…</li>
-			<li>маркетинг технологий, коммуникации,<br> Developer Relations &amp; BEM</li>
+			<li>4 years at Yandex</li>
+			<li>BEM Developer Relations Programm Manager</li>
+			<li>Techevents, marketing, devcommunity — come talk to me!</li>
 			<li>mursya@yandex-team.ru</li>
 			<li>@mursya</li>
+			<li>github.com/mursya</li>
 		</ul>
 		<footer>
+			My name is Yelena. I come from a journalist background, worked a lot in advertising and marketing. 
+			Started to do Barcamp conferences in Kazakhstan to promote and help internet development and startaps, 
+			and did it for 3 years. Basically most of the internet projects we have in the country now were born at 
+			barcamp. Moved to Russia and now work for Yandex. We did a lot with guys starting from doing conferences 
+			than turned all our behaviour upside down and what we have now and what we are going to share is basically it. 
 		</footer>
 	</div></section>
 	<section class="slide myself"><div>
 		<h2>Vladimir</h2>
 		<ul>
-			<li>head of BEM team at Yandex</li>
-			<li>i@tadatuta.com</li>
+			<li>4 years at Yandex</li>
+			<li>Head of BEM Development Division at Yandex</li>
+			<li>HTML/CSS/JS/BEM 24/7</li>
+			<li>tadatuta@@yandex-team.ru</li>
 			<li>@tadatuta</li>
 			<li>github.com/tadatuta</li>
 		</ul>
 		<footer>
-			I work for Yandex — the largest search engine in Russia (that's true in Russia we're bigger than Google).
+			My name is Vladimir.....
+			I work for Yandex — the largest search engine in Russia.
 		</footer>
 	</div></section>
 	<section class="slide cover w"><div>
 		<img src="pictures/yandex-services.jpg" alt="Yandex">
 		<footer>
-			Of course it's not just search but also one of the biggest mail service, great maps and so on.
-			Actually we have few hundreds of different services and an audience of more then 50.5 million visitors daily.
-			To develop these services we have 5,136 employees. And about 400 work on our front-end.
-			And as Yandex is a huge portal with consistent style guide we have a lot of common interface pieces which we prefer to change rapidly and simultaneously.
-			That's where BEM helps us a lot! But of course it works pretty good not just for big projects with large teams but for single freelancers, small teams or startups.
+			Talking about Yandex, as a word it was born in 1993 and as a company in 2000. By now it's not only a 
+			search engine but also one of the biggest mail service, maps, marketplace, context advertisment system and so on.
+			We are 50+ services and APIs with a daily audience of more then 50.5 million visitors.
+			To develop these services we have 5,136 employees. And about 400 of them work in front-end.
+			Yandex is a huge portal with consistent style guide and a lot of common interface pieces which we 
+			prefer to change rapidly and simultaneously. That's where BEM helped us a lot! But of course it works pretty 
+			good not just for big projects with large teams but for single freelancers, small teams or startups. 
 		</footer>
 	</div></section>
+	
 	<section class="slide"><div>
-		<h2>What we're going to talk about</h2>
+		<h2>Agenda</h2>
 		<ul>
-
-<!-- Мурся — 10 мин
-* История появления
-* История распространения в СНГ
-* История распространения на Западе
-Володя — 20 мин
-* Методология/Нейминг
-* Файловая структура/Сборщик
-* Шаблонизатор и JS
-* Либы
-* Проджект стаб/Магия/Практическая сессия/Форум
- -->
-
-			<li>What’s BEM</li>
-			<li class="next">BEM methodology</li>
-			<li class="next">BEM VS Web Components</li>
-			<li class="next">BEM in different techs</li>
-			<li class="next">BEM for JS</li>
-			<li class="next">Yandex's implementation of BEM</li>
+			<li>What's BEM historically?</li>
+			<li class="next">What's BEM technically?</li>
+		<ul>
+			<li>methodology/CSS</li>
+			<li class="next">standardswise</li>
+			<li class="next">JS & other techs</li>
+		</ul>
+			<li class="next">What BEM can do that others can't?</li>
+			<li class="next">How will your developments process look like?</li>
+			<li class="next">How to start using BEM?</li>
 		</ul>
 		<footer>
-			Let’s run through what I’m going to talk about
+			Let’s run through what we are going to talk about
 		</footer>
 	</div></section>
-
-	<section class="slide"><div>
-		<h2>История</h2>
-		<ul>
-			<li>в Яндексе</li>
-			<li class="next">под названием АНБ</li>
-			<li class="next">Виталя Харисов и Серега veged Бережной</li>
-			<li class="next">bem-bl и bem-tools</li>
-			<li class="next">bem-core и bem-components</li>
-			<li class="next">c 2006 и по сей день</li>
-		</ul>
-		<footer></footer>
+	
 	</div></section>
 	<section class="slide section"><div>
-		<h2>Сообщество БЭМ</h2>
-		<footer></footer>
-	</div></section>
-	<section class="slide cover w"><div>
-		<img src="pictures/users.png" alt="BEM">
-	</div></section>
-	<section class="slide myself vitaly"><div>
-		<div style="width: 70%">
-			<blockquote>«Когда я спросил Харисова на Я.Субботнике в 2009 (я тогда в Яндексе не работал), почему они бесплатно рассказывают и выкладывают наработки, он ответил: „Когда делаешь что-то долго и хорошо, со временем появляется желание поделиться“»,</blockquote>
-				<br>
-				<br>
-				<p style="text-align: right;">— из разговора с одним  неизвестным<br>БЭМ-разработчиком</p>
-		</div>
+		<h2>What's BEM historically?</h2>
 		<footer>
 		</footer>
 	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/love.png" alt="BEM">
+	
 	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/super.png" alt="BEM">
+	<section class="slide cover w"><div>
+		<img src="pictures/2006.jpg" alt="NY 2006">		
+		<footer>
+			Do you remember what you do back in 2006?
+			Some of our colleagues probably would only finish school ;) 
+		</footer>
 	</div></section>
+
+    </div></section>
+	<section class="slide cover h"><div>
+		<img src="pictures/screen_cat.jpg" alt="IE cat on screen">		
+		<footer>
+			Do you remember how the web looked back in 2006?
+			WP/Drupal/Joomla/PHP based web-sites. IE 6 as a default browser. Early rise of Firefox. Flash. Win 98/XP. Something you don't want to go back for ;) 
+		</footer>
+	</div></section>
+
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/yandex-services.jpg" alt="Yandex">
+		<footer>
+			Do you remember what Yandex is now? We started from this at the begining.
+		</footer>
+	</div></section>
+	
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/yandex-services-2006.jpg" alt="Yandex in 2006">
+		<footer>
+			But back in 2006 it was this.
+		</footer>
+	</div></section>
+
+		</div></section>
+	<section class="slide cover w"><div>
+		придумать иллюстрацию
+		<footer>
+			Long sheets of static HTML, cascade, CSS with comments, than cut into XSL templates. Almost no Javascript. Early begining of making sites with multiple pages. Manual editing of everything with no garanty of mistakes that changes in one place can cause. Long boring monkey job. 
+		</footer>
+	</div></section>
+
+	</div></section>
+	<section class="slide cover w"><div>
+		придумать иллюстрацию
+		<footer>
+		No methodology, no naming conventions, no tools and frameworks we have now. It was like.. you woke up one day and there is no coffee invented!
+		</footer>
+	</div></section>
+
+
+	</div></section>
+	<section class="slide cover w"><div>
+		придумать иллюстрацию
+		<footer>
+			At the same time we started to speed up in terms of number of similar interface, multipage services with user interactions. We grew in terms of people spread accross offices (we opened office in Saint Petersburg in 2006 and kept on opening, but now its 9 development offices). We talked with designers, backend developers, managers about same things but in different languages. It was a complete natural babeltower!
+		</footer>
+	</div></section>
+	
+		</div></section>
+	<section class="slide cover w"><div>
+		Harisov & Veged's photo
+		<footer>
+			Than came these guys (by the way, one of them is here. Vitaly, our boss, he leads the interface infrastructure development division at Yandex and he is the one who organized Yandex Development Office in Simferopol that now gave jobs to 200+ developers in Crimea). And invented Absolutely Independent Blocks concept that later on became BEM. What it was all about and what it helped us to solve back in 2006?
+		</footer>
+	</div></section>
+
 	<section class="slide"><div>
-		<h2>Ведь приходилось делать</h2>
+		<h2>Problems we faced</h2>
 		<ul>
-			<li>БЭМ — методологию и технологии</li>
-			<li class="next">Лего — общепортальную мета-библиотеку блоков Яндекса</li>
-			<li class="next">разбираться с багами сервисов (Поиска, Картинок, Видео и т.д.)</li>
-			<li class="next">отвечать на запросы</li>
-			<li class="next">эвангелизировать</li>
-			<li class="next">иногда чуть-чуть жить</li>
+			<li>Long cascade affected speed of rendering</li>
+			<li class="next">CSS classes forced us to reinvent names everyday</li>
+			<li class="next">0 incapsulation</li>
+			<li class="next">Intecartive interfaces</li>
 		</ul>
-		<footer></footer>
+		<footer>
+			There are certain problems we faced. And not only we faced them. Most of them are still problems even when we have a lot of modern web development tools in our hands. So. 
+		</footer>
 	</div></section>
-	<section class="slide"><div>
-		<h2>Не только методология, но и</h2>
+
+    </div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/bem-word.jpg" alt="BEM word">
+		<footer>
+			As I told you before, here it was!
+		</footer>
+	</div></section>
+
+		<section class="slide"><div>
+		<h2>Problem -> Solution</h2>
 		<ul>
-			<li>библиотеки</li>
-			<li class="next">инструменты</li>
-			<li class="next">JS-фреймворк</li>
-			<li class="next">шаблонизатор</li>
-			<li class="next">движок для сбора документации и примеров</li>
-			<li class="next">тесты для блоков</li>
-			<li class="next">много чего еще</li>
+			<li>Long cascade affected speed of rendering...</li>
+			<li class="next">... so, BEM helped us eliminate cascade</li>
+			<li class="next">by using block_elements__modifiers naming system</li>
 		</ul>
-		<footer></footer>
+		<footer>
+			With this plain structure CSS we get a profit in rendering 
+		</footer>
+	</div></section>
+
+		<section class="slide"><div>
+		<h2>Problems -> Solution</h2>
+		<ul>
+			<li>CSS classes forced us to reinvent names everyday...</li>
+			<li class="next">... so, with BEM we get a naming convention!</li>
+		</ul>
+		<footer>
+			It was a complete disaster. Imagine that you need to invent names for UI pieces everyday. And this pieces changes and names changes from service to service from team to team. And at the end they make no sense at all!
+			So with BEM block_element__modifier simple rules we had at least understanding throughout of all Yandex services. 
+		</footer>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Problems -> Solution</h2>
+		<ul>
+			<li>0 incapsulation...</li>
+			<li class="next">...so, BEM helped us incapsulate code on block level</li>
+			<li class="next">and made possible to re-use</li>
+		</ul>
+		<footer>
+			Not only from project to project, but between services profiting from the designer's idea of having common Yandex brand UI parts. Now we even have Yandex Lego Library that keeps these parts and a team that maintains it. With every new release services that are built on Yandex.Lego as a core library get pieces of common code tested and delivered and have time to concenrate on features. 
+		</footer>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Problems -> Solution</h2>
+		<ul>
+			<li>Intecartive interfaces...</li>
+			<li class="next">...is no longer a threat with BEM plain file structure</li>
+		</ul>
+		<footer>
+			Intecartive interfaces forced us to use more and more Javascript on the page that made maintainance harder and harder every day with high risks and no change to re-use it. Time of developement and maintainance grew up, developers went crazy trying to cope with it switching from project to project. 
+			So, guess how creating a plain file structure in BEM helped us live better life! 
+			Now you can simply find a block on the page, go into the BEM tree, find a block folder, find a technology file there (css, js, tests, docs, etc) and do whatever you need to do with it!
+		</footer>
+	</div></section>
+
 	</div></section>
 	<section class="slide cover h w"><div>
 		<img src="pictures/pity.png" alt="BEM">
+		<footer>
+			Of course, there are side-effects as everywhere. One may say that now we get long css classes now one can write down. But we don't write them with our bare hands. We automated everything we can giving ourselves a chance to think of what we do and how we do that, and not to do something without thinking. 
+		</footer>
 	</div></section>
+
+
 	<section class="slide cover h w"><div>
 		<img src="pictures/support.png" alt="BEM">
+		<footer>
+			Here we are now ;) 
+		</footer>
 	</div></section>
-	<section class="slide important"><div>
-		<h2>БЭМ — первый технологический продукт Яндекса</h2>
-	</div></section>
+
 	<section class="slide"><div>
-		<h2>Кто мы</h2>
+		<h2>What is BEM now?</h2>
 		<ul>
-			<li>Служба разработки БЭМ</li>
-			<li class="next">Лего и разработчики сервисов Яндекса</li>
-			<li class="next">Разработчики, использующие БЭМ</li>
+			<li>libraries</li>
+			<li class="next">tools</li>
+			<li class="next">JS-framework</li>
+			<li class="next">templating engine</li>
+			<li class="next">engine for building docs and samples</li>
+			<li class="next">tests for blocks</li>
+			<li class="next">the community</li>
 		</ul>
 		<footer></footer>
+		</div></section>
+
+	<section class="slide section"><div>
+		<h2>BEM is the first technology product of Yandex</h2>
+		<footer>
+             What does that mean? It means that we have a development team that develops it. We supports the product, bakes releases, writes docs, helps with difficulties, etc. We are small but we are brave! And we have the community now :) We volunteered long ago first with methodology & our experience sharing on conferences in CIS in Russian back in 2008-2009, that we open sourced code on github in 2010, than we started community management that basically means getting a site together, writing docs, arranging understandable and transparent workflow and release cycle, launching a forum to talk to developers, organizing practical webinars and BEMups. But thats all in Russian. What it gave us and who we are now? 
+		</footer>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>Что мы делаем</h2>
+		<h2>It means</h2>
 		<ul>
-			<li>Служба разработки БЭМ — продукт</li>
-			<li class="next">Команда Лего — мета-библиотеку Яндекса на этом продукте</li>
-			<li class="next">Разработчики сервисов — сервисы на Лего или БЭМ и часто свои БЭМ-проекты</li>
-			<li class="next">Разработчики, использующие БЭМ — проекты на БЭМ, свои БЭМ-инструменты, библиотеки и даже целые новые методологии :)</li>
+			<li>a development division at Yandex with 30+ frontenders</li>
+			<li class="next">400+ frontenders at Yandex.Services</li>
+			<li class="next">1500+ community developers</li>
+			<li class="next">a standard for frontender's CV in CIS </li>
 		</ul>
-		<footer></footer>
+		<footer>
+			same as HTML/CSS/JS            
+		</footer>
 	</div></section>
+
 	<section class="slide cover w"><div>
 		<img src="pictures/we.png" alt="BEM">
 	</div></section>
@@ -185,150 +293,110 @@
 	</div></section>
 	<section class="slide cover w"><div>
 		<img src="pictures/logos.png" alt="BEM">
+		<footer>
+			Most of the CIS based companies use not only a methodology but full stack of BEM.           
+		</footer>
 	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/yo.png" alt="BEM">
+
+    <section class="slide"><div>
+	<h2>It also means that</h2>
+	<ul>
+			<li>our users get help from the team</li>
+			<li class="next">...new versions of the product</li>
+			<li class="next">...features</li>
+			<li class="next">...marketing support</li>
+			<li class="next">and the product got to live!</li>
+		</ul>
+		<footer>
+        that means also you can relay on it more than a season long.
+        Unfortunately, this all great BEM party is only happening in Russian speaking countries. Where in English speaking countries thanks to Harry Roberts and some other great dudes BEM is known only as a methodoology for CSS. That's a pity for us, and we started to change the situation first from studing English hard ;))) Than writing docs. Than giving talks ourselves. Here I pass the word to my colleagues Vladimir, and he shall take you to BEM technically
+		</footer>
 	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/hm.png" alt="BEM">
+
 	</div></section>
 	<section class="slide section"><div>
-		<h2>Пользователям и контрибьюторам</h2>
-		<footer></footer>
+		<h2>What's BEM technically?</h2>
+		<footer>
+		</footer>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>Арсенал</h2>
+		<h2>What's BEM technically?</h2>
 		<ul>
-			<li>Продукт — библиотека bem-components: 20 блоков, тесты, документация, демо (coming), пыщ-пыщ!</li>
-			<li class="next">Служба разработки продукта — разработчики, тестировщики, документаторы</li>
-			<li class="next">Проекты и пользователи разного уровня сложности, размера, тп</li>
-			<li class="next">Онлайн-площадка — bem.info</li>
+			<li>methodology/CSS</li>
+			<li class="next">standardswise</li>
+			<li class="next">JS & other techs</li>
 		</ul>
-		<footer></footer>
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/beminfo.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/beminfo2.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/beminfo3.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/forum2.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/job.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/projects.png" alt="BEM">
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/authors.png" alt="BEM">
-	</div></section>
-	<section class="slide"><div>
-		<h2>Арсенал</h2>
-		<ul>
-			<li>Продукт — библиотека bem-components: 20 блоков, тесты, документация, демо (coming), пыщ-пыщ!</li>
-			<li>Служба разработки продукта — разработчики, тестировщики, документаторы</li>
-			<li>Проекты и пользователи разного уровня сложности, размера, тп</li>
-			<li>Онлайн-площадка — bem.info</li>
-			<li>Оффлайн-площадка: BEMup-ы, хакатоны, конференции и семинары</li>
-			<li class="next"><del>Мурся</del>, маркетинг, коммьюнити</li>
-		</ul>
-		<footer></footer>
-	</div></section>
-	<section class="slide cover h w"><div>
-		<img src="pictures/yeah.png" alt="BEM">
-	</div></section>
-	<section class="slide"><div>
-		<h2>Пользователям и контрибьюторам</h2>
-		<ul>
-			<li>Помогаем консультациями</li>
-			<li class="next">Реагируем на фидбек</li>
-			<li class="next">Отвечаем на фичреквесты</li>
-			<li class="next">Продвигаем вместе</li>
-		</ul>
-		<footer></footer>
-	</div></section>
-	<section class="slide cover w"><div>
-		<img src="pictures/ask.png" alt="BEM">
+		<footer>
+			Next BEM chapter to go
+		</footer>
 	</div></section>
 
 	<section class="slide section"><div>
-		<h2>What is BEM</h2>
+		<h2>BEM is a methodology</h2>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
+		<h2>BEM is a methodology</h2>
 		<ul>
-			<li>a methodology of how to build web services</li>
+			<li>to build web services</li>
 		</ul>
 		<footer>
 			BEM is a methodology of how to build web services. It appeared long before web components and works in all browsers including IE6. I show you why it's much easier to develop and support then with web components.
 		</footer>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
+		<h2>BEM is a methodology</h2>
 		<ul>
-			<li>a methodology of how to build web services</li>
-			<li>the same language for all</li>
+			<li>to build web services</li>
+			<li>using the same language for all</li>
 		</ul>
 		<footer>
 			BEM is the same terms for all people participating in development from managers and designers to front- and backend developers. That sounds not so clear now but I'll explain myself soon.
 		</footer>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
+		<h2>BEM is a methodology</h2>
 		<ul>
-			<li>a methodology of how to build web services</li>
-			<li>the same language for all</li>
-			<li>scaling</li>
+			<li>to build web services</li>
+			<li>using the same language for all</li>
+			<li>and scaling</li>
 		</ul>
 		<footer>
 			BEM is about scaling. Scaling of code, hardware and people.
 			Divide and conquer
 		</footer>
 	</div></section>
+	
 	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
+		<h2>BEM is a methodology</h2>
 		<ul>
-			<li>a methodology of how to build web services</li>
-			<li>the same language for all</li>
-			<li>scaling</li>
-			<li>full stack of techs and tools</li>
+			<li>to build web services</li>
+			<li>using the same language for all</li>
+			<li>and scaling</li>
+			<li>enabling full stack of techs and tools</li>
 		</ul>
 		<footer>
 			BEM is a full stack of techs and tools. Really full. No more need to find the way how to connect one framework with another, building tools with optimisers. BEM gives everything ready and still very loosely coupled so you can take as much BEM as you need.
 		</footer>
 	</div></section>
+
 	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
+		<h2>BEM is a methodology</h2>
 		<ul>
-			<li>a methodology of how to build web services</li>
-			<li>the same language for all</li>
-			<li>scaling</li>
-			<li>full stack of techs and tools</li>
-			<li>ready-made components</li>
+			<li>to build web services</li>
+			<li>using the same language for all</li>
+			<li>and scaling</li>
+			<li>enabling full stack of techs and tools</li>
+			<li>and ready-made components</li>
 		</ul>
 		<footer>
 			BEM is also libraries full of great ready-made components. You'll learn why a thing they are so awesome till the end of my talk.
 		</footer>
 	</div></section>
-	<section class="slide"><div>
-		<h2>What is it actually?!</h2>
-		<ul>
-			<li>a methodology of how to build web services</li>
-			<li>the same language for all</li>
-			<li>scaling</li>
-			<li>full stack of techs and tools</li>
-			<li>ready-made components</li>
-			<li>community</li>
-		</ul>
-		<footer>
-			BEM is a dedicated community in CIS but still not so popular in English-speaking countries because we just started to write documentation and promote it in English. But I believe you'll love it!
-		</footer>
-	</div></section>
+
 	<section class="slide no-bullets"><div>
 		<h2>In short</h2>
 		<ul>
